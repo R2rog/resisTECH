@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<title>ColorPick.js</title>
+	<!--CSS-->
+	<link rel="stylesheet" href="css/colorPick.css">
+	<!--JavaScripts-->
+	<script src="js/jquery-3.1.1.min.js"></script>
+</head>
+<body>
+	<h1 class="title">La resistance</h1>
+	<div>
+		<p>Welcome to La Resistance a web site that helps you calculate the value of any resistor. All what you have to do is to pick all the colors of the four stripes and it's done!</p>
+		<div class="picker" id="stripe1"></div>
+		<div class="picker" id="stripe2"></div>
+		<div class="picker" id="stripe3"></div>
+		<div class="picker" id="stripe4"></div>
+	</div>
+	<button id="btn">Calculate</button>
+	<script src="js/colorPick.js"></script>
+	<script>
+		$(".picker").colorPick({
+			'initialColor' : '#8e44ad',
+			'palette': ["#1abc9c", "#16a085", "#2ecc71", "#27ae60", "#3498db", "#2980b9", "#9b59b6", "#8e44ad", "#34495e", "#2c3e50", "#f1c40f", "#f39c12", "#e67e22", "#d35400", "#e74c3c", "#c0392b", "#ecf0f1"],
+			'onColorSelected': function() {
+				console.log("The user has selected the color: " + this.color)
+				this.element.css({'backgroundColor': this.color, 'color': this.color});
+			}
+		});
+	</script>
+	<script >
+		$("#btn").click(function(){
+			var colorStripe1=$("#stripe1").css('backgroundColor');
+			alert("The color of the stripe1 is:"+colorStripe1);
+		});
+		
+	</script>
+</body>
+</html>
